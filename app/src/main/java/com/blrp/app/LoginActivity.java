@@ -6,18 +6,25 @@ import android.annotation.TargetApi;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.google.android.gms.auth.GoogleAuthException;
+import com.google.android.gms.auth.GoogleAuthUtil;
+import com.google.android.gms.auth.UserRecoverableAuthException;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.plus.Plus;
 import com.jappler.blrp.app.R;
+
+import java.io.IOException;
 
 
 /**
- * A login screen that offers login via email/password and via Google+ sign in.
+ * A login screen that offers login via Google+ sign in.
  * <p/>
  * ************ IMPORTANT SETUP NOTES: ************
  * In order for Google+ sign in to work with your app, you must first go to:
@@ -97,6 +104,27 @@ public class LoginActivity extends PlusBaseActivity {
 
     @Override
     protected void onPlusClientSignIn() {
+        String accessToken = null;
+        try {
+            accessToken = GoogleAuthUtil.getToken(this,
+                    mPlusClient.getAccountName(),
+                    "oauth2:" + SCOPES[0] + ' ' + SCOPES[1]);
+        } catch (IOException transientEx) {
+            // network or server error, the call is expected to succeed if you try again later.
+            // Don't attempt to call again immediately - the request is likely to
+            // fail, you'll hit quotas or back-off.
+            return;
+        } catch (UserRecoverableAuthException e) {
+            // Recover
+            accessToken = null;
+        } catch (GoogleAuthException authEx) {
+            // Failure. The call is not expected to ever succeed so it should not be
+            // retried.
+            return;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
         //Set up sign out and disconnect buttons.
         Button signOutButton = (Button) findViewById(R.id.plus_sign_out_button);
         signOutButton.setOnClickListener(new OnClickListener() {

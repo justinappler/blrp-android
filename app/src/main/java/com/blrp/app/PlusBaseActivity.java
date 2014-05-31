@@ -25,6 +25,8 @@ public abstract class PlusBaseActivity extends Activity
     // A magic number we will use to know that our sign-in error resolution activity has completed
     private static final int OUR_REQUEST_CODE = 49404;
 
+    protected static String[] SCOPES = { Scopes.PLUS_LOGIN, Scopes.PROFILE };
+
     // A flag to stop multiple dialogues appearing for the user
     private boolean mAutoResolveOnFail;
 
@@ -32,7 +34,7 @@ public abstract class PlusBaseActivity extends Activity
     public boolean mPlusClientIsConnecting = false;
 
     // This is the helper object that connects to Google Play Services.
-    private PlusClient mPlusClient;
+    protected PlusClient mPlusClient;
 
     // The saved result from {@link #onConnectionFailed(ConnectionResult)}.  If a connection
     // attempt has been made, this is non-null.
@@ -75,8 +77,7 @@ public abstract class PlusBaseActivity extends Activity
         // Initialize the PlusClient connection.
         // Scopes indicate the information about the user your application will be able to access.
         mPlusClient =
-                new PlusClient.Builder(this, this, this).setScopes(Scopes.PLUS_LOGIN,
-                        Scopes.PLUS_PROFILE).build();
+                new PlusClient.Builder(this, this, this).setScopes(SCOPES).build();
     }
 
     /**
