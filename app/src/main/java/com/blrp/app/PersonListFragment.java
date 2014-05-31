@@ -1,4 +1,4 @@
-package com.jappler.blurp.app;
+package com.blrp.app;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-import com.jappler.blurp.app.dummy.DummyContent;
+import com.jappler.blrp.app.dummy.DummyContent;
 
 /**
  * A list fragment representing a list of People. This fragment

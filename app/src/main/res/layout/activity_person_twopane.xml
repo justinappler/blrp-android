@@ -8,7 +8,7 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context="com.jappler.blurp.app.PersonListActivity">
+    tools:context="com.blrp.app.PersonListActivity">
 
     <!--
     This layout is a two-pane layout for the People
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/person_list"
-        android:name="com.jappler.blurp.app.PersonListFragment"
+        android:name="com.blrp.app.PersonListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

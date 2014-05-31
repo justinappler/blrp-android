@@ -6,5 +6,5 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="plus_sign_out">Switch Google+ account</string>
     <string name="plus_disconnect">Disconnect from Google+</string>
-    <string name="welcome">blurp</string>
+    <string name="welcome">blrp</string>
 </resources>

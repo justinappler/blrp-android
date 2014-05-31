@@ -1,4 +1,4 @@
-package com.jappler.blurp.app;
+package com.blrp.app;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import com.jappler.blurp.app.dummy.DummyContent;
+import com.jappler.blrp.app.R;
+import com.jappler.blrp.app.dummy.DummyContent;
 
 /**
  * A fragment representing a single Person detail screen.

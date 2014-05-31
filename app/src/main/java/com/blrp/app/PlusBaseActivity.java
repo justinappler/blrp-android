@@ -1,4 +1,4 @@
-package com.jappler.blurp.app;
+package com.blrp.app;
 
 import android.content.Intent;
 import android.content.IntentSender;

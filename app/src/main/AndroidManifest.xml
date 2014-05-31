@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jappler.blurp.app" >
+    package="com.jappler.blrp.app" >
 
     <application
         android:allowBackup="true"
@@ -8,19 +8,19 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.jappler.blurp.app.PersonListActivity"
+            android:name="com.blrp.app.PersonListActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.jappler.blurp.app.PersonDetailActivity"
+            android:name="com.blrp.app.PersonDetailActivity"
             android:label="@string/title_person_detail"
-            android:parentActivityName="com.jappler.blurp.app.PersonListActivity" >
+            android:parentActivityName="com.blrp.app.PersonListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jappler.blurp.app.PersonListActivity" />
+                android:value="com.jappler.blrp.app.PersonListActivity" />
         </activity>
         <activity
-            android:name="com.jappler.blurp.app.LoginActivity"
+            android:name="com.blrp.app.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateHidden" >
 
@@ -43,12 +43,4 @@
      option is required to comply with the Google+ Sign-In developer policies
     -->
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-
-    <!-- To retrieve the account name (email) as part of sign-in: -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-
 </manifest>
